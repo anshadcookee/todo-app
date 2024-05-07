@@ -1,0 +1,12 @@
+1 - create a todo app
+        - CRUD
+        - connectDB
+        - check on postman
+        - keep a good file structure
+        
+
+info
+    --  use same function as get and create
+    -- create github repo
+    -- connect new api
+    -- dont call more than 1 api calls in same endpoints
