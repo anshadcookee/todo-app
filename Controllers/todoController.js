@@ -18,6 +18,7 @@ module.exports.saveTodo =async (req,res)=>{
             res.send(data);
         }) 
 }
+//UPDATE
 module.exports.updateToDo = async (req,res)=>{
     const{_id,text} = req.body;
     ToDoModel
@@ -25,6 +26,7 @@ module.exports.updateToDo = async (req,res)=>{
     .then(()=> res.send("Updated Succesfully..."))
     .catch((err)=> console.log(err))
 }
+//DELETE
 module.exports.deleteToDo = async (req,res)=>{
     const{_id} = req.body;
     ToDoModel

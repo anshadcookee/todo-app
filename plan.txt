@@ -1,12 +1,15 @@
-1 - create a todo app
-        - CRUD
-        - connectDB
-        - check on postman
-        - keep a good file structure
-        
 
-info
-    --  use same function as get and create
-    -- create github repo
-    -- connect new api
-    -- dont call more than 1 api calls in same endpoints
+
+
+1 - create a todo app
+        
+        TASK : 1 
+
+        - CRUD     ---------------------------------------------- DONE
+        - connectDB --------------------------------------------- DONE
+        - check on postman -------------------------------------- DONE
+        - keep a good file structure ---------------------------- DONE
+        - use same function as get and create ------------------- DONE
+        - create github repo ------------------------------------ DONE
+        - connect new api --------------------------------------- DONE
+        - Make different endpoints for each  -------------------- DONE
