@@ -1,36 +1,46 @@
+
 const ToDoModel= require("../Models/todoModels");
 
 // GET
 module.exports.getToDo =async(req,res)=>{
-    const toDo = await ToDoModel.find()
-    res.send(toDo);
+    try {
+        const toDo = await ToDoModel.find()
+        res.send(toDo);
+    } catch (error) {
+        console.log(error);
+    }
 }
-
 // POST
 module.exports.saveTodo =async (req,res)=>{
-    const text = req.body;
-    console.log(text);
-    ToDoModel
-        .create(text)
-        .then((data)=>{
-            console.log("Added Sucessfuly");
-            console.log(data);
-            res.send(data);
-        }) 
+    try {
+        const text = req.body;
+        console.log(text);
+        const saveTodo = await ToDoModel.create(text);
+        console.log("Created Sucessfuly..");
+        res.send(saveTodo);
+    } catch (error) {
+        console.log(error)
+    }
 }
+
 //UPDATE
 module.exports.updateToDo = async (req,res)=>{
-    const{_id,text} = req.body;
-    ToDoModel
-    .updateOne({text})
-    .then(()=> res.send("Updated Succesfully..."))
-    .catch((err)=> console.log(err))
+    try {
+        const{_id,text,completed} = req.body;
+        const updatTodo = await ToDoModel.updateOne({_id},{completed,text})
+         res.send("Updated Succesfully...")
+    } catch (error) {
+        console.log(error)
+    }
 }
 //DELETE
 module.exports.deleteToDo = async (req,res)=>{
-    const{_id} = req.body;
-    ToDoModel
-    .findByIdAndDelete(_id)
-    .then(()=> res.send("Deleteded Succesfully..."))
-    .catch((err)=> console.log(err))
+    try {
+        const{_id} = req.body;
+        const deleteTodo = await  ToDoModel.findByIdAndDelete(_id)   
+        res.send("Deleted Succesfully...")
+    } catch (error) {
+        console.log(err)
+    }
+
 }
