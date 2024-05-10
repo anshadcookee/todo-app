@@ -1,15 +1,40 @@
-
-
-
-1 - create a todo app
-        
+1 - TODO APP
+______________________________________________________________________________
+DATE:07-05-24
         TASK : 1 
+                - CRUD     ---------------------------------------------- DONE
+                - connectDB --------------------------------------------- DONE
+                - check on postman -------------------------------------- DONE
+                - keep a good file structure ---------------------------- DONE
+                - use same function as get and create ------------------- DONE
+                - create github repo ------------------------------------ DONE
+                - connect new api --------------------------------------- DONE
+                - Make different endpoints for each  -------------------- DONE
+______________________________________________________________________________        
+DATE:07-05-24
+        TASK : 2
+                - Modifies API,s to async instead of (.then) ------------ DONE
+                - Added timestamps  ------------------------------------- DONE
+                - Added Completed Feature in DB-------------------------- DONE
+                - Topics To Cover --------------------------------------- DONE
+______________________________________________________________________________
 
-        - CRUD     ---------------------------------------------- DONE
-        - connectDB --------------------------------------------- DONE
-        - check on postman -------------------------------------- DONE
-        - keep a good file structure ---------------------------- DONE
-        - use same function as get and create ------------------- DONE
-        - create github repo ------------------------------------ DONE
-        - connect new api --------------------------------------- DONE
-        - Make different endpoints for each  -------------------- DONE
+        TASK : 3
+                - Create Separate endpoint for {Completed Key}----------> DONE
+                - Merge GET and POST endpoint into single one ----------> 
+                - Remove body param from GET endpoint ------------------> DONE
+                - Authentication By using JWT---------------------------> 
+        Topics 
+                - URL Parameter ----------------------------------------> DONE
+                - Middleware -------------------------------------------> DONE
+                - Proxy Objects ----------------------------------------> 
+                - InstanceOf (Operator) --------------------------------> DONE
+                - Solid Principle --------------------------------------> 
+                - Prototype --------------------------------------------> DONE
+                - MVC Architecture -------------------------------------> DONE
+                - OOPS Concepts ----------------------------------------> 
+                - Class ------------------------------------------------> 
+                - LOOP: forIn,forOf ------------------------------------> DONE
+                - MAP Data structure -----------------------------------> 
+                - Custom error Catching , Nested Error -----------------> 
+_______________________________________________________________________________
