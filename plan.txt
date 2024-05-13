@@ -21,20 +21,22 @@ ______________________________________________________________________________
 
         TASK : 3
                 - Create Separate endpoint for {Completed Key}----------> DONE
-                - Merge GET and POST endpoint into single one ----------> 
+                - Merge GET and POST endpoint into single one ----------> DONE
                 - Remove body param from GET endpoint ------------------> DONE
-                - Authentication By using JWT---------------------------> 
+                - Authentication By using JWT---------------------------> DONE
         Topics 
                 - URL Parameter ----------------------------------------> DONE
                 - Middleware -------------------------------------------> DONE
-                - Proxy Objects ----------------------------------------> 
+                - Proxy Objects ----------------------------------------> DONE
                 - InstanceOf (Operator) --------------------------------> DONE
-                - Solid Principle --------------------------------------> 
                 - Prototype --------------------------------------------> DONE
                 - MVC Architecture -------------------------------------> DONE
-                - OOPS Concepts ----------------------------------------> 
-                - Class ------------------------------------------------> 
+                - OOPS Concepts ----------------------------------------> DONE
+                - Class ------------------------------------------------> DONE
                 - LOOP: forIn,forOf ------------------------------------> DONE
-                - MAP Data structure -----------------------------------> 
-                - Custom error Catching , Nested Error -----------------> 
+                - MAP Data structure -----------------------------------> DONE 
+                - Custom error Catching , Nested Error -----------------> DONE
 _______________________________________________________________________________
+
+        TOPICS
+                - Solid Principle --------------------------------------> 

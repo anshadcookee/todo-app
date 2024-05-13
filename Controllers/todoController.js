@@ -1,4 +1,6 @@
 const ToDoModel = require("../Models/todoModels");
+const mongoose = require("mongoose");
+
 
 // GET
 module.exports.getToDo = async (req, res) => {
@@ -20,16 +22,34 @@ module.exports.saveTodo = async (req, res) => {
     console.log(error);
   }
 };
-//UPDATE
-module.exports.updateToDo = async (req, res) => {
+// Create & Update
+module.exports.saveOrUpdateTodo = async (req, res) => {
   try {
     const { _id, text, completed } = req.body;
-    const updateTodo = await ToDoModel.updateOne({_id},{completed,text});
-    res.send("Updated Succesfully...");
+
+    let todo;
+
+    if (_id && mongoose.isValidObjectId(_id)) {
+      // Update existing todo if _id is provided and valid ObjectId
+      todo = await ToDoModel.findByIdAndUpdate(
+        _id,
+        { text, completed },
+        { new: true }
+      );
+      if (!todo) {
+        return res.status(404).send("Todo not found");
+      }
+    } else {
+      // Create new todo with a generated _id (UUID)
+      const newTodo = await ToDoModel.create({ text, completed });
+      todo = newTodo;
+    }
+    return res.send("Todo saved/updated successfully");
   } catch (error) {
-    console.log(error);
+    return res.status(500).send("Internal Server Error");
   }
 };
+
 //DELETE
 module.exports.deleteToDo = async (req, res) => {
   try {
@@ -41,34 +61,15 @@ module.exports.deleteToDo = async (req, res) => {
   }
 };
 // Update Complete Key
-module.exports.updateCompleteKey = async (req,res) =>{
+module.exports.updateCompleteKey = async (req, res) => {
   try {
-    const {_id ,complete} = req.body;
-    const updateCompleteKey = await ToDoModel.findByIdAndUpdate({_id},{complete});
-    res.send("Completed Key Value Has been updated.....")
+    const { _id, complete } = req.body;
+    const updateCompleteKey = await ToDoModel.findByIdAndUpdate(
+      { _id },
+      { complete }
+    );
+    res.send("Completed Key Value Has been updated.....");
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+};
