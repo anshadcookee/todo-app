@@ -19,24 +19,18 @@ DATE:07-05-24
                 - Topics To Cover --------------------------------------- DONE
 ______________________________________________________________________________
 
-        TASK : 3
-                - Create Separate endpoint for {Completed Key}----------> DONE
+        TASK : 4 
                 - Merge GET and POST endpoint into single one ----------> DONE
-                - Remove body param from GET endpoint ------------------> DONE
                 - Authentication By using JWT---------------------------> DONE
-        Topics 
-                - URL Parameter ----------------------------------------> DONE
-                - Middleware -------------------------------------------> DONE
+        Topics:
                 - Proxy Objects ----------------------------------------> DONE
                 - InstanceOf (Operator) --------------------------------> DONE
-                - Prototype --------------------------------------------> DONE
-                - MVC Architecture -------------------------------------> DONE
                 - OOPS Concepts ----------------------------------------> DONE
                 - Class ------------------------------------------------> DONE
-                - LOOP: forIn,forOf ------------------------------------> DONE
                 - MAP Data structure -----------------------------------> DONE 
                 - Custom error Catching , Nested Error -----------------> DONE
+                - Solid Principle --------------------------------------> DONE
 _______________________________________________________________________________
 
         TOPICS
-                - Solid Principle --------------------------------------> 
+                

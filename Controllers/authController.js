@@ -3,12 +3,18 @@ const jwt = require("jsonwebtoken");
 const User = require("../Models/userModel");
 const { model } = require("mongoose");
 
+//Register
 const register = async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password, gender } = req.body;
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = new User({ username, password: hashedPassword });
-    await user.save();
+    const user = new User({
+      username,
+      password: hashedPassword,
+      gender: gender.charAt(0).toUpperCase() + gender.slice(1).toLowerCase(),
+    });
+    const test = await user.save();
+    console.log(test);
     res.status(201).json({ message: "Registered Successfully" });
   } catch (error) {
     res
@@ -16,6 +22,7 @@ const register = async (req, res) => {
       .json({ message: "Failed to register user ", error: error.message });
   }
 };
+//Login
 const login = async (req, res) => {
   const { username, password } = req.body;
 
@@ -36,5 +43,4 @@ const login = async (req, res) => {
     res.status(500).json({ message: "Login failed..", error: error.message });
   }
 };
-
 module.exports = { register, login };

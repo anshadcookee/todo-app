@@ -1,6 +1,6 @@
 const ToDoModel = require("../Models/todoModels");
 const mongoose = require("mongoose");
-
+const User = require("../Models/userModel");
 
 // GET
 module.exports.getToDo = async (req, res) => {
@@ -71,5 +71,26 @@ module.exports.updateCompleteKey = async (req, res) => {
     res.send("Completed Key Value Has been updated.....");
   } catch (error) {
     console.log(error);
+  }
+};
+// Search Username
+module.exports.searchUser = async (req, res) => {
+  const { username } = req.body;
+  try {
+    //list the mactching usernames
+    const user = await User.aggregate([
+      { $match: { username:{ $regex: new RegExp(`^${username}`, 'i')}
+      }  },// { $regex: new RegExp(req.body.username, "i") }
+      { $project: { password: 0 } },
+    ]);
+    if (!user) {
+      console.log("User not found for username:", username);
+      return res.status(404).json({ error: "User not found" });
+    }
+    console.log(user);
+    res.status(200).json(user.length !== 0 ? user : "not found");
+  } catch (error) {
+    console.error("Error searching for users:", error);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };
