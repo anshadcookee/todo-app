@@ -26,9 +26,7 @@ module.exports.saveTodo = async (req, res) => {
 module.exports.saveOrUpdateTodo = async (req, res) => {
   try {
     const { _id, text, completed } = req.body;
-
     let todo;
-
     if (_id && mongoose.isValidObjectId(_id)) {
       // Update existing todo if _id is provided and valid ObjectId
       todo = await ToDoModel.findByIdAndUpdate(
@@ -49,7 +47,6 @@ module.exports.saveOrUpdateTodo = async (req, res) => {
     return res.status(500).send("Internal Server Error");
   }
 };
-
 //DELETE
 module.exports.deleteToDo = async (req, res) => {
   try {
@@ -77,7 +74,7 @@ module.exports.updateCompleteKey = async (req, res) => {
 module.exports.searchUser = async (req, res) => {
   const { username } = req.body;
   try {
-    //list the mactching usernames
+    //list the matching usernames
     const user = await User.aggregate([
       { $match: { username:{ $regex: new RegExp(`^${username}`, 'i')}
       }  },// { $regex: new RegExp(req.body.username, "i") }
@@ -94,3 +91,4 @@ module.exports.searchUser = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
