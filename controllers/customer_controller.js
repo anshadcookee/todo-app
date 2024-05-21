@@ -1,9 +1,9 @@
-const Customer = require("../Models/customer");
+const Customer = require("../models/customer");
 
 // Get all customers
 exports.getAllCustomers = async (req, res) => {
   try {
-    const customers = await Customer.find();
+const customers = await Customer.find();
     res.status(200).json(customers);
     console.log(customers);
   } catch (error) {

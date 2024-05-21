@@ -5,7 +5,7 @@ DATE:07-05-24
                 - CRUD     ---------------------------------------------- DONE
                 - connectDB --------------------------------------------- DONE
                 - check on postman -------------------------------------- DONE
-                - keep a good file structure ---------------------------- DONE
+                - keep a good file structure ---------------------------- 
                 - use same function as get and create ------------------- DONE
                 - create github repo ------------------------------------ DONE
                 - connect new api --------------------------------------- DONE
@@ -36,7 +36,20 @@ ______________________________________________________________________________
                 - Created Username Search Api --------------------------> DONE
 ______________________________________________________________________________
 
-       
+       TASK :6 
                 - Created Customer ADD & GET Api -----------------------> DONE
-                
-                
+                - implement debouncing  in Search ----------------------> DONE
+                - check the TeleTracker and create api ----------------->           
+______________________________________________________________________________
+        
+        TASK :7
+                - change todo_router to index --------------------------> DONE
+                - try class functions to create anything with it-------->
+                - use GET to post data  -------------------------------->
+                - use POST to get data  -------------------------------->
+                - create a service folder ------------------------------>
+                - write all routes inside the controller,only ---------->
+                  pass the url routes,functions,middleware from 
+                  controller, call these this all index.js by using 
+                  loop also use try catch in index ,then remove try 
+                  from controller.

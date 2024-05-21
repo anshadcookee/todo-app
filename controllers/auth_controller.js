@@ -1,9 +1,9 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const User = require("../Models/userModel");
+const User = require("../models/user");
 const { model } = require("mongoose");
 const crypto = require("crypto");
-const { sendResetEmail } = require("../Utlis/authUtlis");
+const { sendResetEmail } = require("../utlity/auth_utlity");
 
 //Register
 const register = async (req, res) => {

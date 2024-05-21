@@ -1,6 +1,6 @@
-const ToDoModel = require("../Models/todoModels");
+const ToDoModel = require("../models/todos");
 const mongoose = require("mongoose");
-const User = require("../Models/userModel");
+const User = require("../models/user");
 
 // GET
 module.exports.getToDo = async (req, res) => {
