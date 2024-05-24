@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const User = require("../models/user");
+const User = require("../models/userModel");
 const { model } = require("mongoose");
 const crypto = require("crypto");
 const { sendResetEmail } = require("../utlity/auth_utlity");

@@ -2,22 +2,72 @@ const mongoose = require("mongoose");
 
 const customerSchema = new mongoose.Schema(
   {
-    name: { 
-      type: String, 
-      required: true 
+    first_name: {
+      type: String,
+      required: true,
     },
-    phone: { 
+    last_name: {
+      type: String,
+    },
+
+    phone: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    address: {
+      type: String,
+      required: true,
+    },
+    area: {
+      type: String,
+      required: true,
+    },
+    status: { 
       type: String, 
       required: true, 
-      unique: true 
+      enum: ["open", "black_list", "suspicious"] 
     },
-    address: { 
-      type: String, 
-      required: true 
+    last_contact_days: {
+      type: Number,
+      required: true,
     },
-    amount_due: { 
-      type: Number, 
-      required: true 
+    cid_no: {
+      type: String,
+      required: true,
+    },
+    total_calls_count: {
+      type: Number,
+      required: true,
+    },
+    total_amount: {
+      type: Number,
+      required: true,
+    },
+
+    balance_amount: {
+      type: Number,
+      required: true,
+    },
+    lsd_date: {
+      type: String,
+      required: true,
+    },
+    lobd_date: {
+      type: String,
+      required: true,
+    },
+    received_amount: {
+      type: Number,
+      required: true,
+    },
+    next_follow_up: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true }

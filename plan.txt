@@ -53,3 +53,14 @@ ______________________________________________________________________________
                   controller, call these this all index.js by using 
                   loop also use try catch in index ,then remove try 
                   from controller.
+                
+                - when i search the first name and last name, in postman ----> 
+                 there should get "name" : "musk" , the entire elon musk
+                 data should get.
+                - function methods ------------------------------------->
+                - create hbs and fetch and search Customer --------------> PENDING
+______________________________________________________________________________________________________________
+
+
+        - created Customer profile --------------------------------------> DONE
+        - search customer -----------------------------------------------> STOPPED

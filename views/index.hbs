@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabbed Interface</title>
+    <!-- Link your CSS file here -->
+    {{!-- <link rel="stylesheet" href="/views/style/style.css"> --}}
+    <!-- Inline styles if needed -->
+    <style>
+        .new-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 0;
+            text-align: center;
+        }
+        .form-container {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 100%;
+            text-align: left;
+            display: flex;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            width: 245px;
+        }
+        .form-input {
+            width: calc(100% - 10px);
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-select {
+            width: calc(100% - 10px);
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-left: 30px;
+        }
+        .form-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 26px;
+            height: 37px;
+            margin-top: 23px;
+            font-size: 16px;
+        }
+        .form-button:hover {
+            background-color: #45a049;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .tab-navigation {
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            display: none; /* Hide all tabs by default */
+            text-align: left; /* Align text in tabs to the left */
+        }
+
+        .tab.active {
+            display: block; /* Show the active tab */
+        }
+    </style>
+</head>
+<body>
+    <div class="new-container">
+        <div class="form-container">
+            <div class="form-group">
+                <label for="searchQuery" class="form-label">Search:</label>
+                <input type="text" id="searchQuery" name="searchQuery" class="form-input" placeholder="Enter customer name...">
+            </div>
+            <button type="button" class="form-button" id="searchButton">Search</button>
+        </div>
+    </div>
+
+    <h1>Tabbed Interface</h1>
+    <!-- Tab navigation -->
+    <div class="tab-navigation">
+        <button onclick="openTab('customer')">Customer</button>
+        <button onclick="openTab('follow-up')">Today's Follow Up</button>
+        <button onclick="openTab('blacklist')">Blacklist</button>
+        <button onclick="openTab('suspicious')">Suspicious</button>
+        <button onclick="openTab('closed')">Closed</button>
+    </div>
+
+    <!-- Tabs content -->
+    <div id="customerTab" class="tab active">
+        <h2>Customer Tab</h2>
+        <div id="searchResults"></div>
+    </div>
+    <div id="followUpTab" class="tab">
+        <h2>Today's Follow Up Tab</h2>
+        <h1>Today's Follow Up Heading</h1>
+        <!-- Add content specific to Today's Follow Up tab here -->
+    </div>
+    <div id="blacklistTab" class="tab">
+        <h2>Blacklist Tab</h2>
+        <h1>Blacklist Heading</h1>
+        <!-- Add content specific to Blacklist tab here -->
+    </div>
+    <div id="suspiciousTab" class="tab">
+        <h2>Suspicious Tab</h2>
+        <h1>Suspicious Heading</h1>
+        <!-- Add content specific to Suspicious tab here -->
+    </div>
+    <div id="closedTab" class="tab">
+        <h2>Closed Tab</h2>
+        <h1>Closed Heading</h1>
+        <!-- Add content specific to Closed tab here -->
+    </div>
+
+    <!-- JavaScript to handle tab switching and search -->
+    <script>
+          function openTab(tabName) {
+            // Hide all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Show the selected tab
+            const selectedTab = document.getElementById(`${tabName}Tab`);
+            selectedTab.classList.add('active');
+        }
+
+        // Function to handle search
+        const searchButton = document.getElementById("searchButton");
+
+        searchButton.addEventListener("click", async function() {
+            const searchQuery = document.getElementById("searchQuery").value.trim();
+            const url = `/api/customer/search-customer`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                let html = "<table>";
+                html += "<tr><th>First Name</th><th>Last Name</th><th>Phone</th><th>Address</th><th>Amount Due</th></tr>";
+
+                data.forEach(customer => {
+                    html += `<tr>
+                                <td>${customer.first_name}</td>
+                                <td>${customer.last_name ? customer.last_name : "-"}</td>
+                                <td>${customer.phone}</td>
+                                <td>${customer.address}</td>
+                                <td>${customer.amount_due}</td>
+                            </tr>`;
+                });
+
+                html += "</table>";
+                document.getElementById("searchResults").innerHTML = html;
+
+            } catch (error) {
+                console.log("Error fetching data:", error);
+                document.getElementById("searchResults").innerHTML = "<p>Error fetching data. Please try again later.</p>";
+            }
+        });
+    </script>
+</body>
+</html>
